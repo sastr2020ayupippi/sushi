@@ -1,0 +1,107 @@
+{
+  "schema_version": 1,
+  "source": "町屋割烹おかげ 営業カレンダー schedule/index.html",
+  "as_of": "2026-11-09",
+  "status_values": {
+    "open": "空席あり",
+    "few": "残りわずか",
+    "full": "満席",
+    "private": "貸切",
+    "closed": "休業"
+  },
+  "missing_status": "unknown (予約可と断定しないこと)",
+  "days": {
+    "2026-11-04": {
+      "lunch": "closed",
+      "dinner": "closed"
+    },
+    "2026-11-10": {
+      "lunch": "closed",
+      "dinner": "closed"
+    },
+    "2026-11-11": {
+      "lunch": "closed",
+      "dinner": "closed"
+    },
+    "2026-11-18": {
+      "lunch": "closed",
+      "dinner": "closed"
+    },
+    "2026-11-25": {
+      "lunch": "closed",
+      "dinner": "closed"
+    },
+    "2026-11-03": {
+      "dinner": "private"
+    },
+    "2026-11-07": {
+      "lunch": "private"
+    },
+    "2026-11-08": {
+      "lunch": "private",
+      "dinner": "private"
+    },
+    "2026-11-09": {
+      "lunch": "closed",
+      "dinner": "few"
+    },
+    "2026-11-15": {
+      "dinner": "private"
+    },
+    "2026-11-22": {
+      "lunch": "private"
+    },
+    "2026-11-24": {
+      "lunch": "closed",
+      "dinner": "private"
+    },
+    "2026-11-29": {
+      "lunch": "private",
+      "dinner": "private"
+    },
+    "2026-12-02": {
+      "lunch": "closed",
+      "dinner": "closed"
+    },
+    "2026-12-09": {
+      "lunch": "closed",
+      "dinner": "closed"
+    },
+    "2026-12-15": {
+      "lunch": "closed",
+      "dinner": "closed"
+    },
+    "2026-12-16": {
+      "lunch": "closed",
+      "dinner": "closed"
+    },
+    "2026-12-23": {
+      "lunch": "closed",
+      "dinner": "closed"
+    },
+    "2026-12-27": {
+      "lunch": "closed",
+      "dinner": "closed"
+    },
+    "2026-12-28": {
+      "lunch": "closed",
+      "dinner": "closed"
+    },
+    "2026-12-29": {
+      "lunch": "closed",
+      "dinner": "closed"
+    },
+    "2026-12-30": {
+      "lunch": "closed",
+      "dinner": "closed"
+    },
+    "2026-12-31": {
+      "lunch": "closed",
+      "dinner": "closed",
+      "note": "御節受渡のみ 15:00〜17:00"
+    },
+    "2026-12-26": {
+      "lunch": "private"
+    }
+  }
+}
