@@ -61,4 +61,46 @@
 <div class="day muted">2</div></div>
 <div class="legend">※「休」は休業日です。貸切・満席等の営業状況は変更になる場合があります。<br>※12/27（日）から年末休業、12/31（木）は御節のお渡しのみです。</div></div>
 <div class="foot">ご予約・お問い合わせは公式LINEよりお願いいたします。<br>町屋割烹おかげ</div>
-</div></body></html>
+</div>
+<script>
+/* 営業状況は schedule.json を正本とする。取得失敗時は従来のHTML表示を維持。 */
+(function(){
+  const labels={open:"◯",few:"△",full:"満席",private:"貸切",closed:"休み"};
+  const calendars=document.querySelectorAll(".cal");
+  const render=(days)=>{
+    calendars.forEach((calendar,index)=>{
+      const month=index===0?11:12;
+      let day=1;
+      [...calendar.children].forEach(cell=>{
+        if(cell.classList.contains("muted"))return;
+        const date="2026-"+String(month).padStart(2,"0")+"-"+String(day++).padStart(2,"0");
+        const status=days[date];
+        if(!status)return;
+        const lunch=status.lunch,dinner=status.dinner;
+        const allClosed=lunch==="closed"&&dinner==="closed";
+        cell.classList.toggle("off",allClosed);
+        const number=cell.textContent.match(/^\s*\d+/)?.[0]?.trim()||String(day-1);
+        let detail="";
+        if(allClosed)detail='<div class="rest">休</div>';
+        else{
+          const entries=[];
+          for(const [period,value] of [["昼",lunch],["夜",dinner]]){
+            if(value&&value!=="open")entries.push(period+labels[value]);
+          }
+          if(entries.length)detail='<div class="info">'+entries.join("<br>")+'</div>';
+        }
+        if(status.note)detail='<div class="info">'+status.note.replace(/御節受渡のみ 15:00〜17:00/,"御節<br>受渡<br>15〜17時")+'</div>';
+        cell.innerHTML=number+detail;
+      });
+    });
+  };
+  fetch("./schedule.json",{cache:"no-cache"}).then(r=>{
+    if(!r.ok)throw Error("schedule unavailable");
+    return r.json();
+  }).then(data=>{
+    if(!data||!data.days||typeof data.days!=="object")throw Error("invalid schedule");
+    render(data.days);
+  }).catch(err=>console.warn("営業情報の読み込みに失敗したため、保存済み表示を使用します",err));
+})();
+</script>
+</body></html>
