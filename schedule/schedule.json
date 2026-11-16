@@ -121,6 +121,9 @@
     "2026-11-19": {
       "lunch": "closed",
       "dinner": "closed"
+    },
+    "2026-12-04": {
+      "dinner": "few"
     }
   }
 }
