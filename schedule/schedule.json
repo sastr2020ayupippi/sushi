@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "source": "町屋割烹おかげ 営業カレンダー schedule/index.html",
-  "as_of": "2026-11-23",
+  "as_of": "2026-11-24",
   "status_values": {
     "open": "空席あり",
     "few": "残りわずか",
@@ -124,7 +124,7 @@
       "dinner": "closed"
     },
     "2026-12-04": {
-      "dinner": "few"
+      "dinner": "full"
     },
     "2026-12-20": {
       "lunch": "few"
