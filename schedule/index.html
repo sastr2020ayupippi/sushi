@@ -6,7 +6,7 @@
 .wrap{max-width:680px;margin:auto;padding:28px 14px 48px}.head{text-align:center;margin-bottom:22px}.head h1{font-size:27px;margin:0 0 8px}.head p{margin:0;line-height:1.7;color:#666}
 .card{background:#fff;border-radius:16px;padding:18px 10px 20px;box-shadow:0 2px 12px rgba(0,0,0,.04)}
 .month{display:flex;justify-content:space-between;align-items:end;padding:0 8px 14px}.month strong{font-size:32px;font-weight:500}.month span{font-size:20px}
-.week,.cal{display:grid;grid-template-columns:repeat(7,1fr)}.week div{text-align:center;font-weight:700;padding:5px 0 9px}.sun{color:#b54f4f}.sat{color:#477ba7}
+.pickup{font-size:10px;color:#79503a;background:#f3e8df;border-radius:3px;text-align:center;line-height:1.35;margin-top:4px;padding:3px 0;overflow-wrap:anywhere}.cal{grid-template-columns:repeat(7,minmax(0,1fr))}.week,.cal{display:grid;grid-template-columns:repeat(7,minmax(0,1fr))}.week div{text-align:center;font-weight:700;padding:5px 0 9px}.sun{color:#b54f4f}.sat{color:#477ba7}
 .day{min-height:76px;border-top:1px solid #aaa;border-left:1px solid #aaa;padding:6px 4px;font-size:16px}.day:nth-child(7n){border-right:1px solid #aaa}.day:nth-last-child(-n+7){border-bottom:1px solid #aaa}.muted{color:#ccc}.off{display:flex;flex-direction:column}.rest{font-size:27px;color:#c54a4a;text-align:center;margin-top:6px}.info{font-size:14px;color:#b54f4f;line-height:1.35;text-align:center;margin-top:4px;font-weight:600}
 .legend{font-size:15px;line-height:1.8;margin:18px 5px 0;color:#555}.btn{display:block;margin:11px 0 0;background:#fff;border:1px solid #ddd;border-radius:14px;padding:17px;text-decoration:none;color:#333;text-align:center;font-size:18px;font-weight:700}.foot{text-align:center;font-size:14px;color:#777;line-height:1.8;margin-top:22px}
 @media(max-width:420px){.day{min-height:68px;font-size:14px;padding:5px 3px}.rest{font-size:24px}.info{font-size:12px}.week div{font-size:13px}}
@@ -45,11 +45,11 @@
 <div class="day">17</div>
 <div class="day">18</div>
 <div class="day sat">19<div class="info">昼貸切<br>夜貸切</div></div>
-<div class="day sun">20<div class="info">昼△</div></div>
+<div class="day sun">20<div class="info">昼△</div><div class="pickup">ローストビーフ<br>お渡し日</div></div>
 <div class="day">21</div>
 <div class="day">22</div>
 <div class="day off">23<div class="rest">休</div></div>
-<div class="day">24</div>
+<div class="day">24<div class="pickup">ローストビーフ<br>お渡し日</div></div>
 <div class="day">25</div>
 <div class="day sat">26<div class="info">昼貸切</div></div>
 <div class="day off sun">27<div class="rest">休</div></div>
@@ -90,7 +90,8 @@
           if(entries.length)detail='<div class="info">'+entries.join("<br>")+'</div>';
         }
         if(status.note)detail='<div class="info">'+status.note.replace(/御節受渡のみ 15:00〜17:00/,"御節<br>受渡<br>15〜17時")+'</div>';
-        cell.innerHTML=number+detail;
+        const pickup=cell.querySelector(".pickup")?.outerHTML||"";
+        cell.innerHTML=number+detail+pickup;
       });
     });
   };
